@@ -42,13 +42,13 @@ function Register() {
       <Head>
         <title>Register</title>
       </Head>
-      <section className="w-3/4 mx-auto flex flex-col gap-10">
+      <section className="w-3/4 mx-auto flex flex-col">
         <div className="title">
           <h1 className="text-gray-800 text-4xl font-bold py-4">Register</h1>
           <p className="w-3/4 mx-auto text-gray-400">Login in Today!</p>
         </div>
 
-        <form className="flex flex-col gap-5" onSubmit={formik.handleSubmit}>
+        <form className="flex flex-col gap-3" onSubmit={formik.handleSubmit}>
           <div
             className={`${styles.input_group} ${
               formik.errors.username && formik.touched.username

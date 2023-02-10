@@ -1,7 +1,12 @@
 .imgStyles {
   @apply bg-gradient-to-r from-blue-500 to-indigo-500 rounded-l-md;
+  height: 100%;
   position: relative;
   overflow: hidden;
+}
+
+.inputStyles {
+  height: 100%;
 }
 
 .cartoonImg {
