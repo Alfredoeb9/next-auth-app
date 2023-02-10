@@ -29,24 +29,24 @@ function Register() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
     };
-
-    const response = await fetch(
-      "https://next-auth-app-test.vercel.app/api/auth/signup",
-      {
+    try {
+      const response = await fetch("/api/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
+      });
+
+      if (response.statusCode === 500) return;
+
+      const data = await response.json();
+
+      console.log(data);
+
+      if (data) {
+        router.push("https://next-auth-app-test.vercel.app");
       }
-    );
-
-    if (response.statusCode === 500) return;
-
-    const data = await response.json();
-
-    console.log(data);
-
-    if (data) {
-      router.push("https://next-auth-app-test.vercel.app");
+    } catch (error) {
+      console.log(error);
     }
 
     //   .then((res) => res.json())
