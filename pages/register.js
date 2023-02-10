@@ -31,7 +31,7 @@ function Register() {
     };
 
     await fetch(
-      `https://next-auth-app-test.vercel.app/api/auth/signup`,
+      `${process.env.NEXT_PUBLIC_AUTH_APP_API_URL}/auth/signup`,
       options
     )
       .then((res) => res.json())
