@@ -32,7 +32,10 @@ function Register() {
     try {
       const response = await fetch("/api/auth/signup", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json, text/plain, */*",
+          "User-Agent": "*",
+        },
         body: JSON.stringify(values),
       });
 
