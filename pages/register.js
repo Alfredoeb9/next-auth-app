@@ -24,13 +24,14 @@ function Register() {
   });
 
   async function onSubmit(values) {
+    console.log("calling");
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
     };
     try {
-      const response = await fetch("/api/auth/signup", {
+      const response = await fetch(`${NEXTAUTH_URL}/api/auth/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json, text/plain, */*",
