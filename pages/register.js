@@ -38,7 +38,9 @@ function Register() {
 
     console.log(data);
 
-    router.push("https://next-auth-app-test.vercel.app");
+    if (data) {
+      router.push("https://next-auth-app-test.vercel.app");
+    }
 
     //   .then((res) => res.json())
     //   .then((data) => {
