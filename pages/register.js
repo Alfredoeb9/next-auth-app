@@ -37,7 +37,13 @@ function Register() {
         </div>
 
         <form className="flex flex-col gap-5" onSubmit={formik.handleSubmit}>
-          <div className={styles.input_group}>
+          <div
+            className={`${styles.input_group} ${
+              formik.errors.username && formik.touched.username
+                ? "border-rose-500"
+                : ""
+            }`}
+          >
             <input
               type="text"
               name="Username"
@@ -54,7 +60,13 @@ function Register() {
           ) : (
             <></>
           )}
-          <div className={styles.input_group}>
+          <div
+            className={`${styles.input_group} ${
+              formik.errors.email && formik.touched.email
+                ? "border-rose-500"
+                : ""
+            }`}
+          >
             <input
               type="text"
               name="email"
@@ -71,7 +83,13 @@ function Register() {
           ) : (
             <></>
           )}
-          <div className={styles.input_group}>
+          <div
+            className={`${styles.input_group} ${
+              formik.errors.password && formik.touched.password
+                ? "border-rose-500"
+                : ""
+            }`}
+          >
             <input
               type={`${show.password ? "text" : "password"}`}
               name="password"
@@ -91,7 +109,13 @@ function Register() {
           ) : (
             <></>
           )}
-          <div className={styles.input_group}>
+          <div
+            className={`${styles.input_group} ${
+              formik.errors.cpassword && formik.touched.cpassword
+                ? "border-rose-500"
+                : ""
+            }`}
+          >
             <input
               type={`${show.cpassword ? "text" : "password"}`}
               name="cpassword"
