@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const connectMongo = async () => {
   try {
     const { connection } = await mongoose.connect(
-      process.env.NEXT_AUTH_APP_MONGOOSE_URL
+      process.env.NEXT_PUBLIC_AUTH_APP_MONGOOSE_URL
     );
 
     if (connection.readyState == 1) {
