@@ -35,7 +35,7 @@ function Register() {
       options
     )
       .then((res) => res.json())
-      .then(() => {
+      .then((data) => {
         if (data) router.push("https://next-auth-app-test.vercel.app");
       });
   }
