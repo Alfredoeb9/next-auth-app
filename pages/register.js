@@ -30,14 +30,24 @@ function Register() {
       body: JSON.stringify(values),
     };
 
-    await fetch(`/api/auth/signup`, options)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data) router.push("https://next-auth-app-test.vercel.app");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const response = await fetch(`/api/auth/signup`, options);
+
+    if (response.statusCode === 500) return;
+
+    const data = await response.json();
+
+    console.log(data);
+
+    // router
+    //   .push("https://next-auth-app-test.vercel.app")
+
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data) router.push("https://next-auth-app-test.vercel.app");
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   }
 
   return (
