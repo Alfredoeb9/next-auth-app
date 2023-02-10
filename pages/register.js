@@ -30,11 +30,14 @@ function Register() {
       body: JSON.stringify(values),
     };
 
-    const response = await fetch("/api/auth/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(values),
-    });
+    const response = await fetch(
+      "https://next-auth-app-test.vercel.app/api/auth/signup",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      }
+    );
 
     if (response.statusCode === 500) return;
 
