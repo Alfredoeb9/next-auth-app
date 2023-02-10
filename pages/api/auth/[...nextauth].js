@@ -10,12 +10,12 @@ import { compare } from "bcryptjs";
 export const authOptions = {
   providers: [
     GoogleProvider({
-      clientId: process.env.NEXT_AUTH_APP_GOOGLE_CLIENT_ID,
-      clientSecret: process.env.NEXT_AUTH_APP_GOOGLE_CLIENT_SECRET,
+      clientId: process.env.NEXT_PUBLIC_AUTH_APP_GOOGLE_CLIENT_ID,
+      clientSecret: process.env.NEXT_PUBLIC_AUTH_APP_GOOGLE_CLIENT_SECRET,
     }),
     GithubProvider({
-      clientId: process.env.NEXT_AUTH_APP_GITHUB_CLIENT_ID,
-      clientSecret: process.env.NEXT_AUTH_APP_GITHUB_CLIENT_SECRET,
+      clientId: process.env.NEXT_PUBLIC_AUTH_APP_GITHUB_CLIENT_ID,
+      clientSecret: process.env.NEXT_PUBLIC_AUTH_APP_GITHUB_CLIENT_SECRET,
     }),
     CredentialsProvider({
       name: "Credentials",
@@ -44,7 +44,7 @@ export const authOptions = {
       },
     }),
   ],
-  secret: process.env.NEXT_AUTH_APP_NEXTAUTH_SECRET,
+  secret: process.env.NEXT_PUBLIC_AUTH_APP_NEXTAUTH_SECRET,
 };
 
 export default NextAuth(authOptions);
