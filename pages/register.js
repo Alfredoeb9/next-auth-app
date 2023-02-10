@@ -30,7 +30,7 @@ function Register() {
       body: JSON.stringify(values),
     };
 
-    await fetch(`/auth/signup`, options)
+    await fetch(`/api/auth/signup`, options)
       .then((res) => res.json())
       .then((data) => {
         if (data) router.push("https://next-auth-app-test.vercel.app");
