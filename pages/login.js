@@ -36,11 +36,11 @@ function Login() {
   }
 
   async function handleGoogleSignIn() {
-    signIn("google", { callbackUrl: "http://localhost:3000" });
+    signIn("google", { callbackUrl: "https://next-auth-app-test.vercel.app" });
   }
 
   async function handleGithubSignIn() {
-    signIn("Github", { callbackUrl: "http://localhost:3000" });
+    signIn("Github", { callbackUrl: "https://next-auth-app-test.vercel.app" });
   }
   return (
     <Layout>

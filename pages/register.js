@@ -30,10 +30,13 @@ function Register() {
       body: JSON.stringify(values),
     };
 
-    await fetch(`${process.env.NEXT_AUTH_APP_API_URL}/auth/signup`, options)
+    await fetch(
+      `https://next-auth-app-test.vercel.app/api/auth/signup`,
+      options
+    )
       .then((res) => res.json())
       .then(() => {
-        if (data) router.push(process.env.NEXT_AUTH_APP);
+        if (data) router.push("https://next-auth-app-test.vercel.app");
       });
   }
 
