@@ -33,17 +33,14 @@ function Register() {
       body: JSON.stringify(values),
     };
     try {
-      const response = await fetch(
-        `https://next-auth-app-test-alfredoeb9.vercel.app/api/auth/signup`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json, text/plain, */*",
-            "User-Agent": "*",
-          },
-          body: JSON.stringify(values),
-        }
-      );
+      const response = await fetch(`/api/auth/signup`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json, text/plain, */*",
+          "User-Agent": "*",
+        },
+        body: JSON.stringify(values),
+      });
 
       if (response.statusCode === 500) return;
 

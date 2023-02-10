@@ -33,6 +33,7 @@ export default async function handler(req, res) {
         .json({ error: "HTTP method not valid only POST Accepted" });
     }
   } catch (error) {
+    console.log(error);
     res.json(error);
     res.status(405).end();
   }
