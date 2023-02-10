@@ -34,7 +34,7 @@ function Register() {
     };
     try {
       const response = await fetch(
-        `https://next-auth-app-test.vercel.app/api/auth/signup`,
+        `https://next-auth-app-test-7sd950uf6-alfredoeb9.vercel.app/api/auth/signup`,
         {
           method: "POST",
           headers: {
