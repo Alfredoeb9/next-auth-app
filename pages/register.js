@@ -9,6 +9,8 @@ import { useFormik } from "formik";
 import { registerValidate } from "@/lib/validate";
 import { useRouter } from "next/router";
 
+const SERVER = process.env.NEXTAUTH_URL;
+
 function Register() {
   const router = useRouter();
   const [show, setShow] = useState({ password: false, cpassword: false });
@@ -32,7 +34,7 @@ function Register() {
     };
     try {
       const response = await fetch(
-        `${process.env.NEXTAUTH_URL}/api/auth/signup`,
+        `https://next-auth-app-test.vercel.app/api/auth/signup`,
         {
           method: "POST",
           headers: {
