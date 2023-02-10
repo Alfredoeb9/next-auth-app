@@ -4,12 +4,16 @@ import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
 import { useState } from "react";
-import { useSession } from "next-auth/react";
+import { useSession, getSession, signOut } from "next-auth/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const { data: session } = useSession();
+
+  function handleSignOut() {
+    signOut();
+  }
   return (
     <>
       <Head>
@@ -18,7 +22,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {session ? AuthUser({ session }) : Guest()}
+      {session ? AuthUser({ session, handleSignOut }) : Guest()}
     </>
   );
 }
@@ -40,7 +44,7 @@ function Guest() {
   );
 }
 
-function AuthUser({ session }) {
+function AuthUser({ session, handleSignOut }) {
   return (
     <main className="container mx-auto text-center py-20">
       <h3 className="text-4xl font-bold underline">Authorized User Homepage</h3>
@@ -51,7 +55,10 @@ function AuthUser({ session }) {
       </div>
 
       <div className="flex justify-center">
-        <button className="mt-5 px-10 py-1 rounded-sm bg-indigo-500 text-white">
+        <button
+          className="mt-5 px-10 py-1 rounded-sm bg-indigo-500 text-white"
+          onClick={handleSignOut}
+        >
           Sign Out
         </button>
       </div>
@@ -66,4 +73,21 @@ function AuthUser({ session }) {
       </div>
     </main>
   );
+}
+
+export async function getServerSideProps({ req }) {
+  const session = await getSession({ req });
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: { session },
+  };
 }
