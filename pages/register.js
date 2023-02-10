@@ -31,14 +31,17 @@ function Register() {
       body: JSON.stringify(values),
     };
     try {
-      const response = await fetch(`${NEXTAUTH_URL}/api/auth/signup`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json, text/plain, */*",
-          "User-Agent": "*",
-        },
-        body: JSON.stringify(values),
-      });
+      const response = await fetch(
+        `${process.env.NEXTAUTH_URL}/api/auth/signup`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json, text/plain, */*",
+            "User-Agent": "*",
+          },
+          body: JSON.stringify(values),
+        }
+      );
 
       if (response.statusCode === 500) return;
 
